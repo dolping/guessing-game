@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing game</title>
+    <script>
+        let maxNum = parseInt(prompt("Enter max number!"));
+        while(!maxNum){
+            maxNum = parseInt(prompt("Enter valid number!"));
+        }
+        const targetNum = Math.floor(Math.random() * maxNum) + 1;
+        let guess = parseInt(prompt("Enter your guess number!")), attempt = 1;
+
+        while(parseInt(guess) !== targetNum){
+            attempt++;
+            if(guess == 'q')break;           
+            if(guess > targetNum){
+                guess = prompt("Too big!. Enter again!")
+            }else if(guess < targetNum) {
+                guess = prompt("Too low!. Enter again!")
+            }
+        }
+        if(guess == 'q'){
+            alert(`Noob! You quit! The number is ${targetNum}`);
+        }else{
+            alert(`Congrats you win! Total attempts ${attempt}`)
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
